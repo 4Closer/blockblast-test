@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>BlockPuzzle Proto</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" class="app">
+    <header class="topbar">
+      <div class="title">BlockPuzzle Proto</div>
+      <div class="meta">
+        <span id="score">Score: 0</span>
+        <button id="btn-reset" class="btn small">Reset</button>
+      </div>
+    </header>
+
+    <section class="board-wrap">
+      <canvas id="board" width="360" height="360" aria-label="Game board"></canvas>
+      <div id="toast" class="toast" aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <div class="hint">Tarik bentuk ke grid atau tap untuk aktifkan; tap lagi untuk rotasi.</div>
+      <div id="shapes" class="shapes"></div>
+      <div class="controls">
+        <button id="save" class="btn">Simpan Lokal</button>
+        <button id="load" class="btn">Muat</button>
+        <button id="undo" class="btn">Undo</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(()=>{/*ignore*/});
+    }
+  </script>
+</body>
+</html>
